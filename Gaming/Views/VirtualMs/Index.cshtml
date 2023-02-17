@@ -1,0 +1,84 @@
+﻿@using Gaming.Controllers
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Gaming.Models.VirtualM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@if (Model.Count() < 1)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsStarted)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsStarted)
+            </td>
+
+            @if (!item.IsStarted)
+            {
+                <td>
+                    <form asp-action="TurnOnVM" asp-controller="VirtualMs" asp-route-id="@item.Name">
+                        <input type="submit" value="Start" class="btn btn-success"/>
+                    </form>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <form asp-action="ShutdownVM" asp-controller="VirtualMs" asp-route-id="@item.Name">
+                        <input type="submit" value="Stop" class="btn btn-danger"/>
+                    </form>
+                </td>
+            }
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Name">
+                    <img src="assets/edit.png">
+                </a>
+                <a asp-action="Details" asp-route-id="@item.Name">
+                    <img src="assets/information.png">
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.Name">
+                    <img src="assets/delete.png">
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

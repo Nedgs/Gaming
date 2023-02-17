@@ -1,0 +1,105 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.navbar{
+    background: #38414A !important;
+}
+
+.navbar-brand{
+    display: flex;
+}
+
+.navbar-brand img{
+    width: 30px;
+    height: 30px;
+}
+
+.navbar-brand h1{
+    font-size: 24px;
+    color: white;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-top: auto;
+    margin-block: auto;
+}
+
+.nav-link{
+    color: #fff9 !important;
+}
+
+.logout{
+    color: #fff;
+    background-color: #6658dd;
+    border-color: #6658dd;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    border: 1px solid transparent;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: .875rem;
+    border-radius: 0.15rem;
+}
+
+.container-fluid{
+    padding-right: 5rem;
+    padding-left: 5rem;
+}
+
+thead{
+    background: #f3f7f9;
+}
+
+thead th {
+    border: none !important;
+}
+
+
+th{
+    padding: 0.85rem !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+td{
+    vertical-align: middle;
+}
+
+td img {
+    width: 25px !important;
+}
+
+tbody tr td:last-child a{
+    margin-left: 10px !important;
+}
+
+@media screen and (max-width: 766px){
+    .container-fluid{
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+    .logout{
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+}
+
